@@ -1,5 +1,8 @@
 FROM  centos:latest
-MAINTAINER shivajee.devops23@gmail.com
+MAINTAINER vikashashok@gmail.com
+RUN echo "mirrorlist=http://mirrorlist.centos.org/?release=8&arch=x86_64&repo=AppStream&infra=$infra" > /etc/yum.repos.d/CentOS-AppStream.repo
+RUN yum makecache
+RUN yum install -y httpd zip unzip && yum clean all
 RUN yum install -y httpd \
  zip\
  unzip
